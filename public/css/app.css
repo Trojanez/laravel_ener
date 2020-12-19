@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Langar&display=swap');
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    background-color: #4a5568; }
+    header .logo {
+        display: block;
+        overflow: hidden; }
+        header .logo h1 {
+            font-family: 'Langar', cursive, sans-serif;
+            font-size: 35px; }
+            header .logo h1 a {
+                color: #fff;
+                text-decoration: none; }
+    header .search-box {
+        display: flex;
+        align-items: center;
+        overflow: hidden; }
+        header .search-box input[type='search'] {
+            width: 400px;
+            height: 30px;
+            border: none;
+            padding-left: 35px;
+            border-radius: 15px; }
+            header .search-box input[type='search']::placeholder {
+                font-size: 17px;
+            }
+    header .menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; }
+        header .menu li {
+            margin-right: 20px; }
+        header .menu li:last-child {
+            margin-right: 0; }
+            header .menu li a {
+                color: #fff;
+                font-size: 18px;
+                text-decoration: none; }
+            header .menu li a:hover {
+                color: cornflowerblue;
+                border-bottom: 1px solid cornflowerblue;
+                padding-bottom: 3px; }
+.all-products {
+    display: block;
+    overflow: hidden; }
+    .all-products .title {
+        font-size: 26px;
+        font-weight: bold;
+        margin-top: 30px; }
+    .all-products .thumbnail img {
+        display: block;
+        margin: 0 auto; }
+    .all-products .caption h3 {
+        font-size: 20px;
+        font-weight: bold; }
+    .all-products .caption .price {
+        font-size: 17px;
+        color: red; }
+    .all-products .caption .info {
+        display: inline-block;
+        overflow: hidden; }
+        .all-products .caption .info a {
+            text-decoration: none;
+        }
+

@@ -1,0 +1,58 @@
+version: '3.7'
+services:
+  # NGINX service
+  nginx:
+    image: nginx:latest
+    container_name: laravel_nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/:/etc/nginx/conf.d/
+    networks:
+      - local
+
+  # PHP-FPM service
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ener
+    volumes:
+      - ./:/var/www
+      - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    working_dir: /var/www
+    networks:
+      - local
+
+  # MYSQL service
+  mysql:
+    image: mysql:5.7.22
+    restart: unless-stopped
+    container_name: db
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./docker/mysql:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: energot
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    networks:
+      - local
+
+  # Adminer service
+  adminer:
+    image: adminer:latest
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - local
+
+networks:
+  local:
+    driver: bridge
