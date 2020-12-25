@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class SubCategory extends Model
 {
     use HasFactory;
+
+    /**
+     * Get the category for subCategories
+     */
+    public function category()
+    {
+        $this->hasOne(Category::class);
+    }
 }
