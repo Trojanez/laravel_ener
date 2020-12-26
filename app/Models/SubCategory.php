@@ -16,4 +16,9 @@ class SubCategory extends Model
     {
         $this->hasOne(Category::class);
     }
+
+    public function brands()
+    {
+        $this->hasMany(Brand::class);
+    }
 }
